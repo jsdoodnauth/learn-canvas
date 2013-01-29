@@ -1,4 +1,6 @@
-
+var x = 150;
+var xDirection = 0;
+var canvas;
 
 window.requestAnimFrame = (function(){
     return  window.requestAnimationFrame       || 
@@ -32,10 +34,26 @@ function animate(){
 
 function render() {
 	context.beginPath();
-	context.rect(150,150,200,200);
+	context.rect(x,150,200,200);
 	context.fillStyle = 'red';
 	context.fill();
 	context.lineWidth = 7;
 	context.strokeStyle = 'black';
 	context.stroke();
+	moveX();	
+}
+
+function moveX() {
+	if (xDirection == 1) {
+		if ((x+200) > canvas.width) { 
+			xDirection = 0;
+		}
+		x++;
+	}
+	else {
+		if (x < 0) {
+			xDirection = 1; 
+		}
+		x--;
+	}
 }
