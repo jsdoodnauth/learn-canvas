@@ -35,6 +35,6 @@ function animate(){
 
 function render() {
 	canvas.width = 512;
-	p.update();
+	p.drawFromCenter();
 }
 })();
